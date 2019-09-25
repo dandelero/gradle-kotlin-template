@@ -1,2 +1,2 @@
 # gradle-kotlin-template
-A project template for a multi-module Kotlin project built with Gradle
+A template for creating multi-module kotlin projects using Gradle

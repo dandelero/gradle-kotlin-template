@@ -1,0 +1,5 @@
+apply plugin: 'idea'
+description 'Nested project 1'
+
+dependencies {
+}

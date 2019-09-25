@@ -1,0 +1,7 @@
+apply plugin: 'idea'
+
+description 'module1'
+
+dependencies {
+    compile project(":utils"), project(":nested-project1")
+}

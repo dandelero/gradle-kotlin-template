@@ -1,0 +1,8 @@
+rootProject.name = 'gradle-kotlin-template'
+
+include 'utils', 'module1'
+include 'nested-project1', 'nested-project2'
+
+project(':nested-project1').projectDir = new File('./nested/project1')
+project(':nested-project2').projectDir = new File('./nested/project2')
+

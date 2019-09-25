@@ -1,0 +1,42 @@
+buildscript {
+    ext.kotlin_version = '1.3.10'
+
+    // Test dependencies
+    ext.junitVersion = '5.3.2'
+    ext.mockitoKotlinVersion = '1.6.0'
+
+    repositories { mavenCentral() }
+}
+
+plugins {
+    // Required for Maven Nexus repository
+    id 'maven'
+    id 'idea'
+
+    id 'org.jetbrains.kotlin.jvm' version '1.3.20'
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+
+
+allprojects {
+    apply plugin: 'java'
+    apply plugin: 'kotlin'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+
+        testCompile "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    }
+
+    compileKotlin { kotlinOptions.jvmTarget = "1.8" }
+    compileTestKotlin { kotlinOptions.jvmTarget = "1.8" }
+    test { useJUnitPlatform() }
+}
+
