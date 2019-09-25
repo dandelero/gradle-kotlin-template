@@ -25,6 +25,8 @@ hs_err_pid*
 # Build + IDE folders.
 .gradle/
 .idea/
-build/
+build/**
 gradle/
-**/build
+/nested/project1/build/
+/nested/project2/build/
+/module1/build/
