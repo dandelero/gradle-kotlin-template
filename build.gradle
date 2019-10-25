@@ -14,6 +14,7 @@ plugins {
     id 'idea'
 
     id 'org.jetbrains.kotlin.jvm' version '1.3.20'
+    id 'com.diffplug.gradle.spotless' version '3.25.0'
 }
 
 apply plugin: 'java'
@@ -23,6 +24,21 @@ apply plugin: 'idea'
 allprojects {
     apply plugin: 'java'
     apply plugin: 'kotlin'
+    apply plugin: 'com.diffplug.gradle.spotless'
+
+    spotless {
+
+        kotlin {
+            target fileTree('.') {
+                include '**/*.kt'
+                exclude '**/.gradle/**'
+            }
+            // see https://github.com/pinterest/ktlint
+            ktlint().userData(['max_line_length': '120', 'insert_final_newline': 'true'])
+            licenseHeaderFile "${rootDir}/gradle/spotless.license"  // License header file
+        }
+
+    }
 
     repositories {
         mavenLocal()

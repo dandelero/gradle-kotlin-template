@@ -30,3 +30,4 @@ gradle/
 /nested/project1/build/
 /nested/project2/build/
 /module1/build/
+/utils/build/
